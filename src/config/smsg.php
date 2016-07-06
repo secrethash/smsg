@@ -4,13 +4,26 @@ return array(
 
     /*
      |--------------------------------------------------------------------------
+     | Default SMS Providers
+     |--------------------------------------------------------------------------
+     | Tell the app which provider will be your default one?
+     | If no provider is passed in send() function, this will be used by default
+     | To get the list of available providers visit our Wiki on Github.
+     |
+     */
+
+     'provider' => 'msg91',
+
+
+    /*
+     |--------------------------------------------------------------------------
      | API KEY(s) for SMS Providers
      |--------------------------------------------------------------------------
      | * API keys for the SMS to work.
      |   + MSG91:
      |     - SMS & Balance: Paste the API key obtained from MSG91 here. This API
      |                      Key will be used to "Send Messages" & "Check Available
-     |						Balance".
+     |                      Balance".
      |
      */
 
@@ -26,18 +39,18 @@ return array(
      |--------------------------------------------------------------------------
      |
      | Set the Default Messaging Route. In several countries it is necessary to
-     | send Transactional Messages through a Transactional Route and Promotional
-     | messages through a Promotional Route only. They are also charged differently
+     | send Transaction Messages through a Transaction Route and Promotion
+     | messages through a Promotion Route only. They are also charged differently
      | by many SMS Providers. For Example:
      | 
      | In India TRAI or Telecom Regulatory Authority of India does not allow
-     | Promotional messages through Transactional Route.
+     | Promotion messages through Transaction Route.
      |
-     | msg91.com allows you to set routes for Transactional and Promotional
-     | messages. According to msg91: "1" refers to Promotional and "4" refers
-     | to Transactional
+     | For example: msg91.com allows you to set routes for Transaction and Promotion
+     | messages. According to msg91: "1" refers to Promotion and "4" refers
+     | to Transaction
 	 |
-     |-> NOTE: Transactional Messages are given more Importance than Promotional
+     |-> NOTE: Transaction Messages are given more Importance than Promotional
      |         ones. Read More about it in Project's Wiki on Github.
      |
      */

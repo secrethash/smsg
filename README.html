@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>README</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="smsg-sms-package">SMSG - SMS Package</h1>
+
+
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+  <p><strong><em>Don’t go on the name. :P</em></strong>. The name is just a mixture of SMS and MSG (seriously! :D ).</p>
+</blockquote>
+
+<p>SMSG is a Messaging Package or SMS Package that was created for the ease of sending messages using the APIs of Popular Service Providers. SMSG was made keeping in mind the possibilities of SMS Technology.</p>
+
+<p>In today’s world the SMS have been depreciated from normal people’s life, but we Programmers and Coders have many possibilities with SMS Technology, still. SMS is very Important in our lives. See how below:</p>
+
+<ul>
+<li><strong>SMS Verification:</strong> SMS can be used as a method of verification of users over bots and also for valid phone numbers.</li>
+<li><strong>Transaction Summary:</strong> Transaction Summary can be sent to the users to tell them about their most recent purchase.</li>
+<li><strong>Purchase Confirmation:</strong> Purchase Confirmation Request codes can be sent to user’s mobile devices and requested on website. This can be used as 2-step Purchase Verification for users buying via their wallet credits.</li>
+<li><strong>Many More: </strong> Possibilities are only limited by your thinking, therefore, expand and more possibilities will take birth.</li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<p>Just a one line <code>composer</code> command:</p>
+
+<p><code>composer require secrethash/smsg</code></p>
+
+<blockquote>
+  <p>That’s It!</p>
+</blockquote>
+
+<h2 id="setup">Setup</h2>
+
+<p>Setting up <strong>SMSG</strong> is also not difficult. Just follow the below steps for successfully setting up the package.</p>
+
+<hr>
+
+<h3 id="step-1-service-provider">Step 1: Service Provider</h3>
+
+<p>You will have to add the <code>SmsgServiceProvider</code> in the Provider’s array:</p>
+
+<ul>
+<li>Open <code>config\app.php</code> file.</li>
+<li>Find <code>'providers'</code> array.</li>
+<li>At the end of the array add <code>Secrethash\Smsg\SmsgServiceProvider::class,</code></li>
+</ul>
+
+<h3 id="step-2-facade">Step 2: Facade</h3>
+
+<p>The working should always be easy, right? Facade makes it happen. After you register the SMSG’s Facade, you will be able to access it via <code>SMSG</code> facade directly. For example: </p>
+
+
+
+<pre class="prettyprint"><code class="language-php hljs ">SMSG::showbal(<span class="hljs-string">'msg91'</span>); <span class="hljs-comment">// outputs balance for MSG91.com</span></code></pre>
+
+<p><strong><em>Let’s set it up:</em></strong></p>
+
+<ul>
+<li>Open <code>config\app.php</code></li>
+<li>Find <code>'aliases'</code>array</li>
+<li>At the end add <code>'SMSG'      =&gt; Secrethash\Smsg\Facade\Smsg::class,</code></li>
+</ul>
+
+<blockquote>
+  <p>Hurrah!</p>
+</blockquote>
+
+<h3 id="step-3-configuration">Step 3: Configuration</h3>
+
+<p>You will have to publish the SMSG’s Config File to get started with it. Run the Command:</p>
+
+<p><code>php artisan vendor:publish --provider=Secrethash\Smsg\SmsgServiceProvider</code></p>
+
+<p>Now open the SMSG configuration file which must be at  <code>config\smsg.php</code> and edit according to your Provider and needs.</p>
+
+<blockquote>
+  <p>Done! You are now ready to Rock ‘n Roll!</p>
+</blockquote>
+
+<hr>
+
+<h2 id="working-with-smsg">Working with SMSG</h2>
+
+<p>Working is very easy with SMSG. There are certain functions that are needed to be triggered to get the desired work done. All the available functions are listed below:</p>
+
+<hr>
+
+<h3 id="sending-message">Sending Message</h3>
+
+<p>To send a message using SMSG you just need to trigger the<code>SMSG::send()</code> function with the required parameters.</p>
+
+<h4 id="parameters">Parameters:</h4>
+
+<ol>
+<li><p><strong>Mobile Number(s):</strong>  It is the first parameter to be passed. There can be single mobile number or multiple mobile numbers. <strong><em>Multiple Mobile Numbers</em></strong> should be separated by commas for eg: <code>0123456789, 9876543210</code>. <br>
+</p><ul><li><strong><em>FIELD REQUIRED</em></strong></li>
+<li><strong><em>MUST BE NUMBERS ONLY</em></strong> <br></li></ul><p></p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> Do Not provide multiple mobile numbers in an array. Separate it by commas only.</p></blockquote></li>
+
+<li><p><strong>Sender ID:</strong> The sender ID is the ID that is shown on the receiver’s mobile in place of a sender’s mobile number. For Eg: <code>DM-SMSG</code>. Sender ID should be in supplied in <strong><em>Plain Text Only</em></strong>.</p>
+
+<ul><li><strong><em>FIELD REQUIRED</em></strong></li>
+<li><strong><em>PLAIN TEXT ONLY</em></strong></li></ul></li>
+<li><p><strong>Message:</strong> Message is basically the body of SMS that you want to send.</p>
+
+<ul><li><strong><em>FIELD REQUIRED</em></strong></li></ul></li>
+<li><p><strong>Provider:</strong> Provider is not important to be filled. If you want to use a different provider for a particular SMS then you should provide it’s valid ID as the Input for <strong>4th Parameter</strong>, otherwise the default provider will be used as defined in your <code>config\smsg.php</code> file. <br>
+</p><ul><li><strong><em>NOT COMPULSORY</em></strong></li>
+<li><strong><em>SHOULD BE A VALID PROVIDER ID</em></strong> <br></li></ul><p></p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> Find the Available Provider’s ID below.</p></blockquote></li>
+
+<li><p><strong>Route:</strong> Route is the passage of sending a message. Mostly, there are only 2 Routes:</p>
+
+<ol><li><em>Transaction:</em> It is a Passage for SMS that has higher delivery rate than others. This passage is for Transaction Related Messages, to send the user transaction summary or some other important message like Mobile Number Verification code. Many Provider prohibit Promotion Messages through Transaction Route. Sometimes account can also get suspended.</li>
+<li><em>Promotion:</em> Route to send promotional messages like coupon codes. Sale Updates, News Updates, etc. This passage is mainly for less important messages. They are usually a little cheaper than Transactional SMS.</li></ol></li>
+</ol>
+
+<hr>
+
+<h4 id="winding-up-the-parameters">Winding Up the Parameters:</h4>
+
+<p>Here is an example on feeding the parameters with Inputs:</p>
+
+
+
+<pre class="prettyprint"><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>;
+
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Request</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">SMSG</span>;
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmsgDemoController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+{</span>
+    <span class="hljs-comment">// Some Code</span>
+        <span class="hljs-comment"># More Code</span>
+            <span class="hljs-variable">$mobile</span> = <span class="hljs-string">'1234567890'</span>;
+            <span class="hljs-variable">$sender</span> = <span class="hljs-string">'SMSG'</span>;
+            <span class="hljs-variable">$msg</span> = <span class="hljs-string">'Hey, John Doe! Your Verification Code is: 7cx50S'</span>;
+            <span class="hljs-variable">$provider</span> = <span class="hljs-string">'msg91'</span>;
+            <span class="hljs-variable">$route</span> = <span class="hljs-string">'4'</span>;
+            <span class="hljs-comment">// Will also catch the output</span>
+            <span class="hljs-variable">$trigger</span> = SMSG::send(<span class="hljs-variable">$mobile</span>, <span class="hljs-variable">$sender</span>, <span class="hljs-variable">$msg</span>, <span class="hljs-variable">$provider</span>, <span class="hljs-variable">$route</span>);
+ <span class="hljs-keyword">echo</span> <span class="hljs-variable">$trigger</span>;
+ }</code></pre>
+
+<p>Try it yourself.</p>
+
+<hr>
+
+<h3 id="checking-available-balance">Checking Available Balance</h3>
+
+<p>Currently all the Providers provide the possibility to check your balance virtually. With this function you can be updated to your balance with available balance on your dashboard. You can also work with this function to automate a reminder to your email or mobile, via sms, and never upset the client.</p>
+
+<p>To perform the check, use <code>SMSG::showbal()</code>. This will return the available balance in your account using the default provider and API key of default route.</p>
+
+<blockquote>
+  <p>Feed the parameters with input to get more flexible data.</p>
+</blockquote>
+
+<h4 id="parameters-1">Parameters:</h4>
+
+<blockquote>
+  <p><strong>Note:</strong> None of the below parameters are Compulsory.</p>
+</blockquote>
+
+<ol>
+<li><strong>Provider:</strong> If you want to check the balance of a different provider. Simply pass the provider’s name as input.</li>
+<li><strong>Route:</strong> Some Providers provide different balance for different routes. If you also want to know the balance of different route at the same time, trigger the function 2 time, once without feeding the input to this parameter and the second time by feeding the input.</li>
+<li><strong>API Key:</strong> Know the balance of different account using the same installation and without editing the configuration.</li>
+</ol>
+
+<hr>
+
+<h4 id="winding-up-with-parameters">Winding Up with Parameters</h4>
+
+
+
+<pre class="prettyprint"><code class="language-php hljs "><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>;
+
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">App</span>\<span class="hljs-title">Http</span>\<span class="hljs-title">Controllers</span>\<span class="hljs-title">Controller</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">Request</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">SMSG</span>;
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmsgDemoController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+{</span>
+    <span class="hljs-variable">$trigger</span> = SMSG::showbal(<span class="hljs-string">'msg91'</span>, <span class="hljs-string">'4'</span>, <span class="hljs-string">'XYZ_API_KEY'</span>);
+     <span class="hljs-keyword">echo</span> <span class="hljs-variable">$trigger</span>; 
+     <span class="hljs-comment">// Outputs the balance of Transaction route of user with API XYZ_API_KEY on MSG91.com</span>
+ }</code></pre>
+
+
+
+<h2 id="available-providers">Available Providers</h2>
+
+<h3 id="1-msg91-msg91com">1. MSG91 (<a href="http://msg91.com/">msg91.com</a>)</h3>
+
+<p>MSG91 is a SMS Service Provider. They have a great set of REST APIs that gives the flexibility in each and every thing. The Robust API is perfect for an app to that sends a large number of request. APIs are Fast and the Delivery System is also quick.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Function Supported</th>
+  <th>Description</th>
+  <th align="right">Provider ID</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td><code>send()</code></td>
+  <td>Sends the message</td>
+  <td align="right"><strong><em>msg91</em></strong></td>
+</tr>
+<tr>
+  <td><code>showbal()</code></td>
+  <td>Checks the available balance</td>
+  <td align="right"><strong><em>msg91</em></strong></td>
+</tr>
+</tbody></table>
+
+
+<hr>
+
+<hr>
+
+<blockquote>
+  <h3 id="more-providers-coming-soon">More Providers Coming Soon!</h3>
+</blockquote>
+
+<hr>
+
+<hr></div></body>
+</html>
