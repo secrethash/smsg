@@ -1,0 +1,14 @@
+{
+    "name": "secrethash/smsg",
+    "description": "SMSG is a SMS Sending package made for sending SMS used for Verification, Newsletter, Invoicing, Purchase Confirmation, etc.",
+    "type": "Project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shashwat Mishra",
+            "email": "contact@shashwat.cf"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
