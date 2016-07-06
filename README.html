@@ -1,15 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>README</title>
-<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-</head>
-<body><div class="container"><h1 id="smsg-sms-package">SMSG - SMS Package</h1>
+<hr>
 
 
+
+<h1 id="smsg-sms-package">SMSG - SMS Package</h1>
+
+<hr>
+
+<p><div class="toc">
+<ul>
+<li><a href="#smsg-sms-package">SMSG - SMS Package</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#setup">Setup</a><ul>
+<li><a href="#step-1-service-provider">Step 1: Service Provider</a></li>
+<li><a href="#step-2-facade">Step 2: Facade</a></li>
+<li><a href="#step-3-configuration">Step 3: Configuration</a></li>
+</ul>
+</li>
+<li><a href="#working-with-smsg">Working with SMSG</a><ul>
+<li><a href="#sending-message">Sending Message</a><ul>
+<li><a href="#parameters">Parameters:</a></li>
+<li><a href="#winding-up-the-parameters">Winding Up the Parameters:</a></li>
+</ul>
+</li>
+<li><a href="#checking-available-balance">Checking Available Balance</a><ul>
+<li><a href="#parameters-1">Parameters:</a></li>
+<li><a href="#winding-up-with-parameters">Winding Up with Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#available-providers">Available Providers</a><ul>
+<li><a href="#1-msg91-msg91com">1. MSG91 (msg91.com)</a></li>
+<li><a href="#more-providers-coming-soon">More Providers Coming Soon!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<hr>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -28,6 +60,8 @@
 <li><strong>Many More: </strong> Possibilities are only limited by your thinking, therefore, expand and more possibilities will take birth.</li>
 </ul>
 
+
+
 <h2 id="install">Install</h2>
 
 <p>Just a one line <code>composer</code> command:</p>
@@ -38,11 +72,15 @@
   <p>That’s It!</p>
 </blockquote>
 
+
+
 <h2 id="setup">Setup</h2>
 
 <p>Setting up <strong>SMSG</strong> is also not difficult. Just follow the below steps for successfully setting up the package.</p>
 
 <hr>
+
+
 
 <h3 id="step-1-service-provider">Step 1: Service Provider</h3>
 
@@ -53,6 +91,8 @@
 <li>Find <code>'providers'</code> array.</li>
 <li>At the end of the array add <code>Secrethash\Smsg\SmsgServiceProvider::class,</code></li>
 </ul>
+
+
 
 <h3 id="step-2-facade">Step 2: Facade</h3>
 
@@ -74,6 +114,8 @@
   <p>Hurrah!</p>
 </blockquote>
 
+
+
 <h3 id="step-3-configuration">Step 3: Configuration</h3>
 
 <p>You will have to publish the SMSG’s Config File to get started with it. Run the Command:</p>
@@ -88,15 +130,21 @@
 
 <hr>
 
+
+
 <h2 id="working-with-smsg">Working with SMSG</h2>
 
 <p>Working is very easy with SMSG. There are certain functions that are needed to be triggered to get the desired work done. All the available functions are listed below:</p>
 
 <hr>
 
+
+
 <h3 id="sending-message">Sending Message</h3>
 
 <p>To send a message using SMSG you just need to trigger the<code>SMSG::send()</code> function with the required parameters.</p>
+
+
 
 <h4 id="parameters">Parameters:</h4>
 
@@ -129,6 +177,8 @@
 </ol>
 
 <hr>
+
+
 
 <h4 id="winding-up-the-parameters">Winding Up the Parameters:</h4>
 
@@ -166,6 +216,8 @@
 
 <hr>
 
+
+
 <h3 id="checking-available-balance">Checking Available Balance</h3>
 
 <p>Currently all the Providers provide the possibility to check your balance virtually. With this function you can be updated to your balance with available balance on your dashboard. You can also work with this function to automate a reminder to your email or mobile, via sms, and never upset the client.</p>
@@ -175,6 +227,8 @@
 <blockquote>
   <p>Feed the parameters with input to get more flexible data.</p>
 </blockquote>
+
+
 
 <h4 id="parameters-1">Parameters:</h4>
 
@@ -189,6 +243,8 @@
 </ol>
 
 <hr>
+
+
 
 <h4 id="winding-up-with-parameters">Winding Up with Parameters</h4>
 
@@ -216,6 +272,8 @@
 
 
 <h2 id="available-providers">Available Providers</h2>
+
+
 
 <h3 id="1-msg91-msg91com">1. MSG91 (<a href="http://msg91.com/">msg91.com</a>)</h3>
 
@@ -252,5 +310,4 @@
 
 <hr>
 
-<hr></div></body>
-</html>
+<hr>

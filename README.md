@@ -1,4 +1,11 @@
+---
 # SMSG - SMS Package
+
+---
+[TOC]
+
+---
+
 ##Introduction
 >***Don't go on the name. :P***. The name is just a mixture of SMS and MSG (seriously! :D ).
 
