@@ -11,10 +11,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "Secrethash\\Trickster\\": "src/"
+            "Secrethash\\Smsg\\": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "illuminate/support" : "~5"
     }
