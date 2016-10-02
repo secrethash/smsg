@@ -18,9 +18,9 @@ class SmsgServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publishes the Config File
-        $this->publishes([
-        __DIR__.'./config/smsg.php' => config_path('smsg.php'),
-        ]);
+        $configPath = __DIR__ . '/config/smsg.php';
+        $this->publishes([$configPath => config_path('smsg.php')]);
+        $this->mergeConfigFrom($configPath, 'smsg');
     }
 
     /**
@@ -31,16 +31,10 @@ class SmsgServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->mergeConfigFrom(
-        __DIR__.'./config/smsg.php', 'smsg'
-        );
         $this->app->make('Secrethash\Smsg\Smsg');
-        require __DIR__ . "/HTTP/routes.php"; 
+        // require __DIR__ . "/HTTP/routes.php"; 
 
-        $this->app['smsg'] = $this->app->share(function($app)
-        {
-            return new Smsg;
-        });
+        $this->bindFacade();
     }
 
     /**
@@ -51,6 +45,12 @@ class SmsgServiceProvider extends ServiceProvider
     public function provides()
     {
         return array('smsg');
+    }
+
+    private function bindFacade() {
+        $this->app->bind('smsg', function($app) {
+            return new smsg();
+        });
     }
 
 }
