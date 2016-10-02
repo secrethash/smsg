@@ -9,6 +9,13 @@
             "email": "contact@shashwat.cf"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Secrethash\\Trickster\\": "src/"
+        }
+    },
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "illuminate/support" : "~5"
+    }
 }
