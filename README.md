@@ -1,13 +1,16 @@
 ---
 # SMSG - SMS Package
 
----
-[TOC]
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/secrethash/smsg/master/LICENSE) [![Packagist](https://img.shields.io/packagist/dt/secrethash/smsg.svg?style=flat-square)](https://packagist.org/packages/secrethash/smsg) [![Packagist](https://img.shields.io/packagist/v/secrethash/smsg.svg?style=flat-square)](https://packagist.org/packages/secrethash/smsg) [![GitHub release](https://img.shields.io/github/release/secrethash/smsg.svg?style=flat-square)](https://packagist.org/packages/secrethash/smsg)
+
+***Socialize:***
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/secrethash.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/secrethash) [![Twitter](https://img.shields.io/twitter/url/https/github.com/secrethash/dropmenu.svg?style=social&style=flat-square)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
 ---
 
-##Introduction
->***Don't go on the name. :P***. The name is just a mixture of SMS and MSG (seriously! :D ).
+## Introduction
+> ***Don't go on the name. :P***. The name is just a mixture of SMS and MSG (seriously! :D ).
 
 SMSG is a Messaging Package or SMS Package that was created for the ease of sending messages using the APIs of Popular Service Providers. SMSG was made keeping in mind the possibilities of SMS Technology.
 
@@ -18,26 +21,26 @@ In today's world the SMS have been depreciated from normal people's life, but we
 *  **Purchase Confirmation:** Purchase Confirmation Request codes can be sent to user's mobile devices and requested on website. This can be used as 2-step Purchase Verification for users buying via their wallet credits.
 *  **Many More: ** Possibilities are only limited by your thinking, therefore, expand and more possibilities will take birth.
 
-##Install
+## Install
 
 Just a one line `composer` command:
 
 `composer require secrethash/smsg`
 
->That's It!
+> That's It!
 
-##Setup
+## Setup
 Setting up **SMSG** is also not difficult. Just follow the below steps for successfully setting up the package.
 
 ---
-###Step 1: Service Provider
+### Step 1: Service Provider
 You will have to add the `SmsgServiceProvider` in the Provider's array:
 
 + Open `config\app.php` file.
 + Find `'providers'` array.
 + At the end of the array add `Secrethash\Smsg\SmsgServiceProvider::class,`
 
-###Step 2: Facade
+### Step 2: Facade
 The working should always be easy, right? Facade makes it happen. After you register the SMSG's Facade, you will be able to access it via `SMSG` facade directly. For example: 
 
 ```php
@@ -50,27 +53,27 @@ SMSG::showbal('msg91'); // outputs balance for MSG91.com
 + Find `'aliases'`array
 + At the end add `'SMSG'      => Secrethash\Smsg\Facade\Smsg::class,`
 
->Hurrah!
+> Hurrah!
 
-###Step 3: Configuration
+### Step 3: Configuration
 You will have to publish the SMSG's Config File to get started with it. Run the Command:
 
 `php artisan vendor:publish --provider=Secrethash\Smsg\SmsgServiceProvider`
 
 Now open the SMSG configuration file which must be at  `config\smsg.php` and edit according to your Provider and needs.
 
->Done! You are now ready to Rock 'n Roll!
+> Done! You are now ready to Rock 'n Roll!
 
 ---
 
-##Working with SMSG
+## Working with SMSG
 Working is very easy with SMSG. There are certain functions that are needed to be triggered to get the desired work done. All the available functions are listed below:
 
 ---
 ### Sending Message
 To send a message using SMSG you just need to trigger the`SMSG::send()` function with the required parameters.
 
-####Parameters:
+#### Parameters:
 1.  **Mobile Number(s):**  It is the first parameter to be passed. There can be single mobile number or multiple mobile numbers. ***Multiple Mobile Numbers*** should be separated by commas for eg: `0123456789, 9876543210`.
 	* ***FIELD REQUIRED***
 	* ***MUST BE NUMBERS ONLY***
@@ -92,7 +95,7 @@ To send a message using SMSG you just need to trigger the`SMSG::send()` function
 	3. _Promotion:_ Route to send promotional messages like coupon codes. Sale Updates, News Updates, etc. This passage is mainly for less important messages. They are usually a little cheaper than Transactional SMS.
 
 ---
-####Winding Up the Parameters: 
+#### Winding Up the Parameters: 
 
 Here is an example on feeding the parameters with Inputs:
 ```php
@@ -125,14 +128,14 @@ class SmsgDemoController extends Controller
 Try it yourself.
 
 ---
-###Checking Available Balance
+### Checking Available Balance
 Currently all the Providers provide the possibility to check your balance virtually. With this function you can be updated to your balance with available balance on your dashboard. You can also work with this function to automate a reminder to your email or mobile, via sms, and never upset the client.
 
 To perform the check, use `SMSG::showbal()`. This will return the available balance in your account using the default provider and API key of default route.
 
 >Feed the parameters with input to get more flexible data.
 
-####Parameters:
+#### Parameters:
 > **Note:** None of the below parameters are Compulsory.
 
 1. **Provider:** If you want to check the balance of a different provider. Simply pass the provider's name as input.
@@ -140,7 +143,7 @@ To perform the check, use `SMSG::showbal()`. This will return the available bala
 3. **API Key:** Know the balance of different account using the same installation and without editing the configuration.
 
 ---
-####Winding Up with Parameters
+#### Winding Up with Parameters
 ```php
 <?php
 
@@ -162,7 +165,7 @@ class SmsgDemoController extends Controller
  }
 ```
 
-##Available Providers
+## Available Providers
 
 ###1. MSG91 ([msg91.com](http://msg91.com/))
 MSG91 is a SMS Service Provider. They have a great set of REST APIs that gives the flexibility in each and every thing. The Robust API is perfect for an app to that sends a large number of request. APIs are Fast and the Delivery System is also quick.
@@ -178,7 +181,7 @@ MSG91 is a SMS Service Provider. They have a great set of REST APIs that gives t
 
 ---
 
->###More Providers Coming Soon!
+>### More Providers Coming Soon!
 
 
 ----------
