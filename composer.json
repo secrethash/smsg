@@ -24,7 +24,7 @@
             "Secrethash\\Smsg\\SmsgServiceProvider"
          ],
          "aliases":{
-            "SMSG":"Secrethash\\Smsg\Facade\\Smsg"
+            "SMSG":"Secrethash\\Smsg\\Facade\\Smsg"
          }
       }
    }
