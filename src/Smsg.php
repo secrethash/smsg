@@ -190,14 +190,15 @@ class Smsg extends Controller
      *
      * @return Response
      */
-    public function showbal($_provider, $_type='', $_authkey='')
+    public function showbal($_provider='', $_type='', $_authkey='')
     {
-        //
-        if (!empty($_provider)) { 
-
-            $this->_checkbal($_provider, $_type, $_authkey);
-            return $this->outputBal;
+        if (empty($_provider))
+        {
+            $_provider = $this->provider;
         }
+
+        $this->_checkbal($_provider, $_type, $_authkey);
+        return $this->outputBal;
     }
 
 }
