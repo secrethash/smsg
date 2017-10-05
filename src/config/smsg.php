@@ -30,6 +30,9 @@ return array(
     'api' => array(
         'msg91'=>array(
             'smsBal'=>'API_KEY' // To Send SMS and check Balance
+            ),
+        'justsend'=>array(
+            'apiKey'=>'API_KEY' // Api Key
             )
         ),
 
@@ -76,8 +79,10 @@ return array(
      	'msg91' => array(
      		'sms' => 'https://control.msg91.com/api/sendhttp.php',
      		'bal' => 'https://control.msg91.com/api/balance.php',
+     		),
+     	'justsend' => array(
+     		'sms' => 'https://justsend.pl/api/rest/message/send/',
+     		'bal' => 'https://justsend.pl/api/rest/payment/points/',
      		)
      	)
-
-
 	);
