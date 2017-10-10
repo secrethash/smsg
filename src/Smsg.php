@@ -129,8 +129,8 @@ class Smsg extends Controller
 
                 //get response
                 $output = curl_exec($ch);
-                Log::debug('SMSG: Code of MSG91.com has been executed');
-                //Log error to DB if any
+
+                //Log errors if any
                 if(curl_errno($ch))
                 {
                     Log::critical('SMSG: SMS Sending (msg91.com): error:' . curl_error($ch));
@@ -138,7 +138,6 @@ class Smsg extends Controller
 
                 curl_close($ch);
 
-                Log::info('SMSG: Request for sending message returned: '.$output.' (Probably a request ID).');
                 return $output;
         }
 
